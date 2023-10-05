@@ -3,7 +3,7 @@
   <div
     class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"
   >
-    <div *ngIf="data">
+    <div *ngIf="tarjetas">
       <h2>Lista de datos</h2>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
@@ -29,7 +29,7 @@
             </div>
             <div class="mb-2">
               <strong class="text-gray-600">Fecha:</strong>
-              <span class="text-gray-800">{{ formatDate(tarjeta.fecha) }}</span>
+              <span class="text-gray-800">{{ tarjeta.fecha }}</span>
             </div>
             <div class="mb-2">
               <strong class="text-gray-600">CVV:</strong>

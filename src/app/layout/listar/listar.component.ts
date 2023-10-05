@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-listar',
@@ -9,13 +8,18 @@ import { Component, Input } from '@angular/core';
 })
 export class ListarComponent {
   http = inject(HttpClient);
-  @Input() data: any;
+  tarjetas: any[] = [];
 
   ngOnInit(): void {
-    this.http
-      .get('https://app.gosummus.com/testing/api/tarjetas')
-      .subscribe((response) => {
-        this.data = response;
-      });
+    this.http.get('https://app.gosummus.com/testing/api/tarjetas').subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.tarjetas = data.tarjetas;
+      },
+      error: (e) => {
+        console.log(e);
+        alert('Error en el logueo');
+      },
+    });
   }
 }
