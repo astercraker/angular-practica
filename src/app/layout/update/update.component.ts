@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update',
@@ -8,15 +9,24 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./update.component.css'],
 })
 export class UpdateComponent {
+  route = inject(ActivatedRoute);
   tarjetaForm: FormGroup;
+  id: string | null = null;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.tarjetaForm = this.fb.group({
+      id: this.id,
       titular: ['', Validators.required],
       numero: ['', Validators.required],
       fecha: ['', Validators.required],
       cvv: ['', Validators.required],
+      observaciones: ['', Validators.required],
     });
+  }
+
+  ngOnInit() {
+    // Use ActivatedRoute to get the 'id' parameter from the URL
+    this.id = this.route.snapshot.paramMap.get('id');
   }
 
   submitForm() {
@@ -29,11 +39,11 @@ export class UpdateComponent {
         .subscribe(
           (response) => {
             // Manejar la respuesta del servidor aquí
-            console.log('Respuesta del servidor:', response);
+            alert('Se actualizo');
           },
           (error) => {
             // Manejar errores aquí
-            console.error('Error en la solicitud:', error);
+            alert('Error al actualizar');
           }
         );
     }

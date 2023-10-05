@@ -16,6 +16,7 @@ export class CreateComponent {
       numero: ['', Validators.required],
       fecha: ['', Validators.required],
       cvv: ['', Validators.required],
+      observaciones: ['', Validators.required],
     });
   }
 

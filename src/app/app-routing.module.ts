@@ -19,7 +19,7 @@ const routes: Routes = [
     component: CreateComponent,
   },
   {
-    path: 'dashboard/update',
+    path: 'dashboard/update/:id',
     component: UpdateComponent,
   },
 ];
