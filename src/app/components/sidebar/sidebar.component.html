@@ -27,6 +27,14 @@
   aria-label="Sidebar"
 >
   <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+    <div class="w-full p-5">
+      <input
+        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+        id="inline-full-name"
+        type="text"
+        [formControl]="searchTerm"
+      />
+    </div>
     <ul class="space-y-2 font-medium">
       <li>
         <a

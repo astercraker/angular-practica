@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreateComponent } from './layout/create/create.component';
 import { UpdateComponent } from './layout/update/update.component';
+import { BusquedaComponent } from './layout/busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UpdateComponent } from './layout/update/update.component';
     SidebarComponent,
     CreateComponent,
     UpdateComponent,
+    BusquedaComponent,
   ],
   imports: [
     BrowserModule,
