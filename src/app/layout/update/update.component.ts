@@ -12,6 +12,7 @@ export class UpdateComponent {
   route = inject(ActivatedRoute);
   tarjetaForm: FormGroup;
   id: string | null = null;
+  tarjeta: any;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.tarjetaForm = this.fb.group({
@@ -27,6 +28,25 @@ export class UpdateComponent {
   ngOnInit() {
     // Use ActivatedRoute to get the 'id' parameter from the URL
     this.id = this.route.snapshot.paramMap.get('id');
+    this.tarjeta = this.route.snapshot.paramMap.get('tarjeta');
+    this.tarjeta = JSON.parse(this.tarjeta);
+    console.log(this.tarjeta);
+    this.initForm();
+  }
+
+  initForm() {
+    // Create a form model with default values
+    const defaultFormValues = {
+      id: this.id,
+      titular: this.tarjeta.titular,
+      numero: this.tarjeta.numero,
+      fecha: this.tarjeta.fecha,
+      cvv: this.tarjeta.cvv,
+      // Add more form controls with default values as needed
+    };
+
+    // Initialize the FormGroup with the default form values
+    this.tarjetaForm = this.fb.group(defaultFormValues);
   }
 
   submitForm() {

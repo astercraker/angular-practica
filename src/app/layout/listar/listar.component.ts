@@ -14,9 +14,10 @@ export class ListarComponent {
   tarjetas: any[] = [];
   faPenToSquare = faPenToSquare;
 
-  redirectToDashboardWithId(id: number) {
+  redirectToDashboardWithId(id: number, tarjeta: any) {
     // Redirige dinámicamente a la URL deseada
-    this.router.navigate(['/dashboard/update', id]);
+    console.log(tarjeta);
+    this.router.navigate(['/dashboard/update', id, JSON.stringify(tarjeta)]);
   }
 
   ngOnInit(): void {
