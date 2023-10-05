@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -9,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CreateComponent {
   tarjetaForm: FormGroup;
+  router = inject(Router);
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.tarjetaForm = this.fb.group({
@@ -32,6 +34,7 @@ export class CreateComponent {
         .subscribe({
           next: (data: any) => {
             console.log(data);
+            this.router.navigate(['dashboard']);
           },
           error: (e) => {
             alert('Error al crear');
