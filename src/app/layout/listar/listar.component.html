@@ -1,0 +1,43 @@
+<app-sidebar></app-sidebar>
+<div class="p-4 sm:ml-64">
+  <div
+    class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"
+  >
+    <div *ngIf="data">
+      <h2>Lista de datos</h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      >
+        <!-- Iterar a través de las tarjetas -->
+        <div
+          *ngFor="let tarjeta of tarjetas"
+          class="max-w-md mx-auto bg-white rounded-md shadow-md overflow-hidden"
+        >
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-gray-800">
+              Información de Tarjeta
+            </h3>
+          </div>
+          <div class="px-4 py-2">
+            <div class="mb-2">
+              <strong class="text-gray-600">Número:</strong>
+              <span class="text-gray-800">{{ tarjeta.numero }}</span>
+            </div>
+            <div class="mb-2">
+              <strong class="text-gray-600">Titular:</strong>
+              <span class="text-gray-800">{{ tarjeta.titular }}</span>
+            </div>
+            <div class="mb-2">
+              <strong class="text-gray-600">Fecha:</strong>
+              <span class="text-gray-800">{{ formatDate(tarjeta.fecha) }}</span>
+            </div>
+            <div class="mb-2">
+              <strong class="text-gray-600">CVV:</strong>
+              <span class="text-gray-800">{{ tarjeta.cvv }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
