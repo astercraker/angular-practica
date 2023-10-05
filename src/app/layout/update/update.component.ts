@@ -37,7 +37,7 @@ export class UpdateComponent {
   initForm() {
     // Create a form model with default values
     const defaultFormValues = {
-      id: this.id,
+      _id: this.id,
       titular: this.tarjeta.titular,
       numero: this.tarjeta.numero,
       fecha: this.tarjeta.fecha,
@@ -52,7 +52,7 @@ export class UpdateComponent {
   submitForm() {
     if (this.tarjetaForm.valid) {
       const formData = this.tarjetaForm.value;
-
+      console.log(formData);
       // Realizar la solicitud POST utilizando HttpClient
       this.http
         .put('https://app.gosummus.com/testing/api/tarjeta', formData)

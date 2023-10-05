@@ -34,6 +34,7 @@ export class CreateComponent {
         .subscribe({
           next: (data: any) => {
             console.log(data);
+            alert('Se registro exitosamente');
             this.router.navigate(['dashboard']);
           },
           error: (e) => {
